@@ -27,7 +27,7 @@
             //                    | GUI | LWR | SPC | ENT | RSE  | ALT |
 
             bindings = <
-&kp ESCAPE  &kp Q  &kp W  &kp F  &kp P  &kp B  &kp J  &kp L  &kp U  &kp Y  &kp SEMICOLON  &kp BSPC  &mt LEFT_SHIFT TAB  &kp A  &kp R  &kp S  &kp T  &kp B  &kp M  &kp N  &kp E  &kp I  &kp O  &mt RIGHT_SHIFT SINGLE_QUOTE  &kp LCTRL  &kp X  &kp C  &kp D  &kp V  &kp Z  &kp K  &kp H  &kp COMMA  &kp PERIOD  &kp SLASH  &kp RCTRL  &trans  &kp SPACE  &trans  &kp RET  &kp BACKSPACE  &kp RALT
+&kp ESCAPE  &kp Q  &kp W  &kp F  &kp P  &kp B  &kp J  &kp L  &kp U  &kp Y  &kp SEMICOLON  &kp BSPC  &mt LEFT_SHIFT TAB  &kp A  &kp R  &kp S  &kp T  &kp G  &kp M  &kp N  &kp E  &kp I  &kp O  &mt RIGHT_SHIFT SINGLE_QUOTE  &kp LCTRL  &kp X  &kp C  &kp D  &kp V  &kp Z  &kp K  &kp H  &kp COMMA  &kp PERIOD  &kp SLASH  &kp RCTRL  &trans  &kp SPACE  &trans  &kp RET  &kp BACKSPACE  &kp RALT
             >;
         };
 
