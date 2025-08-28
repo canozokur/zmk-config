@@ -81,7 +81,7 @@
             display-name = "wm";
 
             bindings = <
-              &kp TAB  &kp LG(N1)  &kp LG(N2)  &kp LG(N3)  &kp LG(N4)  &kp LG(N5)  &kp LG(N6)  &kp LG(N7)  &kp LG(N8)  &kp LG(N9)  &kp RLG(N0)  &kp BSPC
+              &kp TAB  &kp LG(N1)  &kp LG(N2)  &kp LG(N3)  &kp LG(N4)  &kp LG(N5)  &kp LG(N6)  &kp LG(N7)  &kp LG(N8)  &kp LG(N9)  &kp LG(N0)  &kp BSPC
               &kp LSHFT  &trans  &trans  &trans  &trans  &trans  &trans  &trans  &trans  &trans  &trans  &trans
               &kp LCTRL  &trans  &trans  &trans  &trans  &trans  &trans  &trans  &trans  &trans  &trans  &trans
                         &kp LGUI  &trans  &kp SPACE  &kp RET  &trans  &kp RALT
