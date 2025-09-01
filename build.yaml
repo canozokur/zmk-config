@@ -14,9 +14,9 @@ include:
     shield: nice_view
     snippet: studio-rpc-usb-uart
 
-#  - board: piantor_pro_bt_left
-#    shield: settings_reset
-#    snippet: studio-rpc-usb-uart
-#  - board: piantor_pro_bt_right
-#    shield: settings_reset
-#    snippet: studio-rpc-usb-uart
+  - board: piantor_pro_bt_left
+    shield: settings_reset
+    snippet: studio-rpc-usb-uart
+  - board: piantor_pro_bt_right
+    shield: settings_reset
+    snippet: studio-rpc-usb-uart
