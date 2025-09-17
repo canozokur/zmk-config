@@ -47,6 +47,19 @@
         hold-trigger-key-positions = <0 1 2 3 4 5 12 13 14 15 16 17 24 25 26 27 28 29>;
         hold-trigger-on-release;
       };
+      prog_caps: prog_caps {
+        compatible = "zmk,behavior-caps-word";
+        #binding-cells = <0>;
+        continue-list = <UNDERSCORE MINUS>;
+      };
+      caps_tap: caps_tap {
+        compatible = "zmk,behavior-hold-tap";
+        #binding-cells = <2>;
+        flavor = "tap-preferred";
+        tapping-term-ms = <200>;
+        bindings = <&prog_caps>, <&kp>;
+        display-name = "caps-tap";
+      };
     };
 
     keymap {
@@ -58,7 +71,7 @@
             bindings = <
               &kp ESCAPE  &kp Q  &kp W  &kp F  &kp P  &kp B  &kp J  &kp L  &kp U  &kp Y  &kp SEMICOLON  &kp BSPC
               &kp TAB  &hml LALT A  &hml LGUI R  &hml LCTRL S  &hml LSHFT T  &kp G  &kp M  &hmr RSHFT N  &hmr RCTRL E  &hmr RGUI I  &hmr RALT O  &kp SINGLE_QUOTE
-              &kp LCTRL  &kp X  &kp C  &kp D  &kp V  &kp Z  &kp K  &kp H  &kp COMMA  &kp PERIOD  &kp SLASH  &kp RCTRL
+              &kp LCTRL  &kp X  &kp C  &kp D  &kp V  &kp Z  &caps_tap 0 K  &kp H  &kp COMMA  &kp PERIOD  &kp SLASH  &kp RCTRL
                          &mo 1  &kp SPACE  &mo 2  &kp RET  &kp BACKSPACE  &mo 3
             >;
         };
