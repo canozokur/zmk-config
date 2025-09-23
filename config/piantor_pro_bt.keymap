@@ -16,10 +16,20 @@
 / {
     combos {
       compatible = "zmk,combos";
-        combo_vm_layer {
-            timeout-ms = <30>;
+        combo_wm_layer {
+            timeout-ms = <50>;
             key-positions = <19 20>;
             bindings = <&mo 3>;
+        };
+        combo_sym_layer_left {
+            timeout-ms = <50>;
+            key-positions = <3 4>;
+            bindings = <&mo 2>;
+        };
+        combo_sym_layer_right {
+            timeout-ms = <50>;
+            key-positions = <7 8>;
+            bindings = <&mo 2>;
         };
         combo_caps_word {
             timeout-ms = <30>;
