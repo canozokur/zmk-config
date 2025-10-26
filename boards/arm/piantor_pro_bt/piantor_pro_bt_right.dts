@@ -48,10 +48,6 @@
     col-offset = <21>;
 };
 
-&five_col_transform {
-    col-offset = <21>;
-};
-
 &pinctrl {
     spi3_default: spi3_default {
         group1 {
