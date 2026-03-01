@@ -104,7 +104,7 @@
             display-name = "symbol";
 
             bindings = <
-              &kp TAB  &kp EXCL  &kp AT  &kp HASH  &kp DLLR  &kp PRCNT  &kp CARET  &kp AMPS  &kp ASTRK  &kp LPAR  &kp RPAR  &kp BSPC
+              &kp TAB  &kp EXCL  &kp AT  &kp HASH  &kp DLLR  &kp PRCNT  &kp CARET  &kp AMPS  &kp ASTRK  &kp LPAR  &kp RPAR  &kp SLCK
               &kp LSHFT  &trans  &trans  &trans  &trans  &trans  &kp MINUS  &kp EQUAL  &kp LBRC  &kp RBRC  &kp BSLH  &kp GRAVE
               &kp LCTRL  &trans  &trans  &trans  &trans  &trans  &kp UNDER  &kp PLUS  &kp LBKT  &kp RBKT  &kp PIPE  &kp TILDE
                         &kp LGUI  &trans  &kp SPACE  &kp RET  &trans  &kp RALT
