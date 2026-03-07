@@ -3,8 +3,8 @@
 
 config BOARD_PIANTOR_PRO_BT_LEFT
 	bool "Piantor Pro BT Left"
-	depends on SOC_NRF52840_QIAA
+	select SOC_NRF52840_QIAA
 
 config BOARD_PIANTOR_PRO_BT_RIGHT
     bool "Piantor Pro BT Right"
-    depends on SOC_NRF52840_QIAA
+    select SOC_NRF52840_QIAA
