@@ -1,7 +1,5 @@
 # SPDX-License-Identifier: MIT
 
-CONFIG_BOARD_PIANTOR_PRO_BT_LEFT=y
-
 # Enable deep sleep
 CONFIG_ZMK_SLEEP=y
 
