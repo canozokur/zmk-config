@@ -13,9 +13,6 @@ endif # BOARD_PIANTOR_PRO_BT_LEFT
 
 if BOARD_PIANTOR_PRO_BT_LEFT || BOARD_PIANTOR_PRO_BT_RIGHT
 
-config BOARD
-    default "piantor_pro_bt"
-
 config ZMK_SPLIT
     default y
 
