@@ -108,8 +108,8 @@
             display-name = "colemak";
 
             bindings = <
-              &kp ESCAPE  &kp Q  &kp W  &kp F  &kp P  &kp B  &kp J  &kp L  &kp U  &kp Y  &kp SEMICOLON  &kp BSPC
-              &kp TAB  &hml LALT A  &hml LGUI R  &hml LCTRL S  &hml LSHFT T  &kp G  &kp M  &hmr RSHFT N  &hmr RCTRL E  &hmr RGUI I  &hmr RALT O  &kp SINGLE_QUOTE
+              &kp ESCAPE  &kp Q  &kp W  &kp F  &kp P  &kp B  &kp J  &kp L  &kp U  &kp Y  &kp SEMICOLON  &kp DEL
+              &kp TAB  &hml LALT A  &hml LGUI R  &hml LCTRL S  &hml_shift LSHFT T  &kp G  &kp M  &hmr_shift RSHFT N  &hmr RCTRL E  &hmr RGUI I  &hmr RALT O  &kp SINGLE_QUOTE
               &kp LCTRL  &kp X  &kp C  &kp D  &kp V  &kp Z  &kp K  &kp H  &kp COMMA  &kp PERIOD  &kp SLASH  &kp RCTRL
                          &mo 1  &kp SPACE  &sym_arrow_dance  &kp RET  &kp BACKSPACE  &mo 4
             >;
@@ -119,7 +119,7 @@
             display-name = "number";
 
             bindings = <
-              &kp TAB  &kp N1  &kp N2  &kp N3  &kp N4  &kp N5  &kp N6  &kp N7  &kp N8  &kp N9  &kp N0  &kp BSPC
+              &kp TAB  &kp N1  &kp N2  &kp N3  &kp N4  &kp N5  &kp N6  &kp N7  &kp N8  &kp N9  &kp N0  &kp DEL
               &kp F12  &kp F1  &kp F2  &kp F3  &kp F4  &kp F5  &kp F6  &kp F7  &kp F8  &kp F9  &kp F10  &kp F11
               &kp LCTRL  &trans  &trans  &trans  &trans  &trans  &trans  &trans  &trans  &trans  &trans  &trans
                           &kp LGUI  &trans  &kp SPACE  &kp LGUI  &trans  &kp SPACE
