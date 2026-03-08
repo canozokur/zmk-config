@@ -1,0 +1,9 @@
+boards:
+  - name: piantor_pro_bt_left
+    vendor: canozokur
+    socs:
+      - name: nrf52840
+  - name: piantor_pro_bt_right
+    vendor: canozokur
+    socs:
+      - name: nrf52840
