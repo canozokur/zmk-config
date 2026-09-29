@@ -1,1 +1,17 @@
 .DS_Store
+
+# West workspace (created by `west init -l config`)
+# (anchored to the repo root so config/zephyr/module.yml stays tracked)
+/.west/
+/zmk/
+/zephyr/
+/modules/
+/optional/
+
+# Local firmware builds
+/build/
+
+# Nix
+.direnv/
+result
+result-*
