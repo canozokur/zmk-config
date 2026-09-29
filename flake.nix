@@ -25,9 +25,8 @@
         "aarch64-linux"
       ];
       forAllSystems = nixpkgs.lib.genAttrs systems;
-    in
-    {
-      devShells = forAllSystems (
+
+      mkEnv =
         system:
         let
           pkgs = nixpkgs.legacyPackages.${system};
@@ -38,12 +37,58 @@
           zephyr-sdk = zephyr.sdk-0_16.override {
             targets = [ "arm-zephyr-eabi" ];
           };
+
+          # Build the firmware halves, mirroring the CI matrix in build.yaml.
+          # Available as `build-fw` inside the dev shell, and standalone via
+          # `nix run .#build-fw` (env vars are baked in there, since the SDK's
+          # setup hook only runs in interactive shells).
+          build-fw = pkgs.writeShellApplication {
+            name = "build-fw";
+            runtimeInputs = [
+              zephyr.pythonEnv # provides west
+              pkgs.cmake
+              pkgs.ninja
+              pkgs.dtc
+              pkgs.gcc
+              pkgs.gperf
+              pkgs.ccache
+            ];
+            text = ''
+              export ZEPHYR_TOOLCHAIN_VARIANT="zephyr"
+              export ZEPHYR_SDK_INSTALL_DIR="${zephyr-sdk}"
+              export PYTHONPATH="${zephyr.pythonEnv}/${zephyr.pythonEnv.sitePackages}"
+
+              case "''${1:-both}" in
+                left) targets=(left) ;;
+                right) targets=(right) ;;
+                both) targets=(left right) ;;
+                *)
+                  echo "usage: build-fw [left|right|both]" >&2
+                  exit 1
+                  ;;
+              esac
+
+              if [ ! -d .west ]; then
+                echo "error: no west workspace here" >&2
+                exit 1
+              fi
+
+              for side in "''${targets[@]}"; do
+                echo "==> Building piantor_pro_bt_''${side}"
+                west build -s zmk/app -d "build/''${side}" -b "piantor_pro_bt_''${side}" -- \
+                  -DSHIELD=nice_view -DZMK_CONFIG="$PWD/config"
+                echo "==> Firmware: build/''${side}/zephyr/zmk.uf2"
+              done
+            '';
+          };
         in
         {
-          default = pkgs.mkShellNoCC {
+          inherit build-fw;
+          devShell = pkgs.mkShellNoCC {
             packages = [
               zephyr-sdk
               zephyr.pythonEnv # python + west + all zephyr build scripts' deps
+              build-fw
               pkgs.cmake
               pkgs.ninja
               pkgs.dtc
@@ -72,13 +117,27 @@
               echo "  west init -l config && west update"
               echo
               echo "Build firmware (same args as CI):"
-              echo "  west build -s zmk/app -d build/left -b piantor_pro_bt_left -- -DSHIELD=nice_view -DZMK_CONFIG=\"$PWD/config\""
-              echo "  west build -s zmk/app -d build/right -b piantor_pro_bt_right -- -DSHIELD=nice_view -DZMK_CONFIG=\"$PWD/config\""
+              echo "  build-fw [left|right|both]"
               echo
               echo "Firmware lands in build/{left,right}/zephyr/zmk.uf2"
             '';
           };
-        }
-      );
+        };
+    in
+    {
+      devShells = forAllSystems (system: {
+        default = (mkEnv system).devShell;
+      });
+
+      packages = forAllSystems (system: {
+        build-fw = (mkEnv system).build-fw;
+      });
+
+      apps = forAllSystems (system: {
+        build-fw = {
+          type = "app";
+          program = "${(mkEnv system).build-fw}/bin/build-fw";
+        };
+      });
     };
 }
