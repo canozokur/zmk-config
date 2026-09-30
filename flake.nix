@@ -95,6 +95,7 @@
               pkgs.gcc
               pkgs.gperf
               pkgs.ccache
+              pkgs.thunar
             ];
 
             env = {
