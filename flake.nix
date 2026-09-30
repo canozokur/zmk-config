@@ -63,7 +63,7 @@
                 right) targets=(right) ;;
                 both) targets=(left right) ;;
                 *)
-                  echo "usage: build-fw [left|right|both]" >&2
+                  echo "usage: build-fw [left|right|both] (default: both)" >&2
                   exit 1
                   ;;
               esac
